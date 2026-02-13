@@ -6,6 +6,7 @@ DiabetesPredict Pro is a sophisticated web application that leverages machine le
 Project Structure :-
 
 diabetes-predictor/
+
 ├── app.py
 
 ├── classification_model.pkl
@@ -13,11 +14,17 @@ diabetes-predictor/
 ├── requirements.txt
 
 ├── static/
+
 │   ├── css/
+
 │   │   └── style.css
+
 │   └── js/
+
 │       └── script.js
+
 └── templates/
+
     └── index.html
     
 
