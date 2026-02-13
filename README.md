@@ -21,7 +21,9 @@ diabetes-predictor/
 
 │   └── js/
 │       └── script.js
+
 └── templates/
+
          └── index.html
     
 
