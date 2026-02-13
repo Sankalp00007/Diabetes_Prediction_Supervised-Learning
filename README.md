@@ -20,12 +20,9 @@ diabetes-predictor/
 │   │   └── style.css
 
 │   └── js/
-
 │       └── script.js
-
 └── templates/
-
-    └── index.html
+         └── index.html
     
 
 ✨ Key Features
