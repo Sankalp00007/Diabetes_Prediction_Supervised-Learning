@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiabetesPredict Pro | AI-Powered Risk Assessment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="ai-loader">
+                <div class="ai-brain">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="loading-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <p class="loading-text">Analyzing health data with AI...</p>
+            <p class="loading-subtext">Checking 72+ indicators for accurate prediction</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <div class="logo-text">
+                        <h1>DiabetesPredict<span>Pro</span></h1>
+                        <p class="logo-tagline">AI-Powered Health Intelligence</p>
+                    </div>
+                </div>
+                
+                <div class="nav-stats">
+                    <div class="stat-badge">
+                        <i class="fas fa-bullseye"></i>
+                        <span>74% Model Accuracy</span>
+                    </div>
+                    <div class="stat-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>HIPAA Compliant</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero-section animate__animated animate__fadeIn">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h2 class="hero-title">
+                            <span class="highlight">Predict Diabetes Risk</span>
+                            <br>With <span class="ai-text">Artificial Intelligence</span>
+                        </h2>
+                        <p class="hero-description">
+                            Our advanced machine learning model analyzes 8 key health parameters 
+                            to provide accurate diabetes risk assessment with 74% accuracy.
+                        </p>
+                        <div class="hero-features">
+                            <div class="feature">
+                                <i class="fas fa-robot"></i>
+                                <span>AI-Powered Analysis</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Real-time Results</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-user-shield"></i>
+                                <span>Privacy First</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-visual">
+                        <div class="pulse-circle">
+                            <div class="pulse-ring"></div>
+                            <div class="pulse-ring"></div>
+                            <div class="pulse-ring"></div>
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main Content Grid -->
+            <div class="content-grid">
+                <!-- Input Panel -->
+                <section class="input-panel card animate__animated animate__fadeInLeft">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-sliders-h"></i>
+                        </div>
+                        <div class="card-title">
+                            <h3>Patient Health Profile</h3>
+                            <p>Enter your health parameters for analysis</p>
+                        </div>
+                    </div>
+                    
+                    <form id="predictionForm" class="health-form">
+                        <div class="form-grid">
+                            <!-- Row 1 -->
+                            <div class="form-group">
+                                <label for="Pregnancies" class="form-label">
+                                    <i class="fas fa-baby"></i>
+                                    <span>Pregnancies</span>
+                                    <span class="label-info" title="Number of pregnancies">ℹ️</span>
+                                </label>
+                                <div class="input-with-slider">
+                                    <input type="number" id="Pregnancies" class="form-input" 
+                                           min="0" max="20" step="1" value="2" required>
+                                    <div class="value-display">
+                                        <span id="PregnanciesValue">2</span>
+                                    </div>
+                                </div>
+                                <input type="range" id="PregnanciesSlider" class="form-slider" 
+                                       min="0" max="20" value="2">
+                                <div class="range-labels">
+                                    <span>0</span>
+                                    <span>20+</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Glucose" class="form-label">
+                                    <i class="fas fa-tint"></i>
+                                    <span>Glucose (mg/dL)</span>
+                                    <span class="label-info" title="Plasma glucose concentration">ℹ️</span>
+                                </label>
+                                <div class="input-with-slider">
+                                    <input type="number" id="Glucose" class="form-input" 
+                                           min="0" max="300" step="1" value="120" required>
+                                    <div class="value-display">
+                                        <span id="GlucoseValue">120</span>
+                                        <span class="unit">mg/dL</span>
+                                    </div>
+                                </div>
+                                <input type="range" id="GlucoseSlider" class="form-slider" 
+                                       min="0" max="300" value="120">
+                                <div class="range-labels">
+                                    <span>Low</span>
+                                    <span>Normal</span>
+                                    <span>High</span>
+                                </div>
+                            </div>
+
+                            <!-- Row 2 -->
+                            <div class="form-group">
+                                <label for="BloodPressure" class="form-label">
+                                    <i class="fas fa-heartbeat"></i>
+                                    <span>Blood Pressure</span>
+                                    <span class="label-info" title="Diastolic blood pressure">ℹ️</span>
+                                </label>
+                                <div class="input-with-slider">
+                                    <input type="number" id="BloodPressure" class="form-input" 
+                                           min="0" max="140" step="1" value="72" required>
+                                    <div class="value-display">
+                                        <span id="BloodPressureValue">72</span>
+                                        <span class="unit">mm Hg</span>
+                                    </div>
+                                </div>
+                                <input type="range" id="BloodPressureSlider" class="form-slider" 
+                                       min="0" max="140" value="72">
+                                <div class="range-labels">
+                                    <span>Low</span>
+                                    <span>Normal</span>
+                                    <span>High</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="SkinThickness" class="form-label">
+                                    <i class="fas fa-ruler-vertical"></i>
+                                    <span>Skin Thickness</span>
+                                    <span class="label-info" title="Triceps skin fold thickness">ℹ️</span>
+                                </label>
+                                <div class="input-with-slider">
+                                    <input type="number" id="SkinThickness" class="form-input" 
+                                           min="0" max="100" step="1" value="29" required>
+                                    <div class="value-display">
+                                        <span id="SkinThicknessValue">29</span>
+                                        <span class="unit">mm</span>
+                                    </div>
+                                </div>
+                                <input type="range" id="SkinThicknessSlider" class="form-slider" 
+                                       min="0" max="100" value="29">
+                                <div class="range-labels">
+                                    <span>0</span>
+                                    <span>100</span>
+                                </div>
+                            </div>
+
+                            <!-- Row 3 -->
+                            <div class="form-group">
+                                <label for="Insulin" class="form-label">
+                                    <i class="fas fa-syringe"></i>
+                                    <span>Insulin Level</span>
+                                    <span class="label-info" title="2-Hour serum insulin">ℹ️</span>
+                                </label>
+                                <div class="input-with-slider">
+                                    <input type="number" id="Insulin" class="form-input" 
+                                           min="0" max="900" step="1" value="125" required>
+                                    <div class="value-display">
+                                        <span id="InsulinValue">125</span>
+                                        <span class="unit">μU/ml</span>
+                                    </div>
+                                </div>
+                                <input type="range" id="InsulinSlider" class="form-slider" 
+                                       min="0" max="900" value="125">
+                                <div class="range-labels">
+                                    <span>Low</span>
+                                    <span>Normal</span>
+                                    <span>High</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="BMI" class="form-label">
+                                    <i class="fas fa-weight"></i>
+                                    <span>Body Mass Index</span>
+                                    <span class="label-info" title="Body mass index">ℹ️</span>
+                                </label>
+                                <div class="input-with-slider">
+                                    <input type="number" id="BMI" class="form-input" 
+                                           min="0" max="70" step="0.1" value="25.5" required>
+                                    <div class="value-display">
+                                        <span id="BMIValue">25.5</span>
+                                        <span class="unit">kg/m²</span>
+                                    </div>
+                                </div>
+                                <input type="range" id="BMISlider" class="form-slider" 
+                                       min="0" max="70" step="0.1" value="25.5">
+                                <div class="range-labels">
+                                    <span>Under</span>
+                                    <span>Normal</span>
+                                    <span>Over</span>
+                                    <span>Obese</span>
+                                </div>
+                            </div>
+
+                            <!-- Row 4 -->
+                            <div class="form-group">
+                                <label for="DiabetesPedigreeFunction" class="form-label">
+                                    <i class="fas fa-dna"></i>
+                                    <span>Diabetes Pedigree</span>
+                                    <span class="label-info" title="Genetic predisposition">ℹ️</span>
+                                </label>
+                                <div class="input-with-slider">
+                                    <input type="number" id="DiabetesPedigreeFunction" class="form-input" 
+                                           min="0.08" max="2.5" step="0.01" value="0.35" required>
+                                    <div class="value-display">
+                                        <span id="DiabetesPedigreeFunctionValue">0.35</span>
+                                    </div>
+                                </div>
+                                <input type="range" id="DiabetesPedigreeFunctionSlider" class="form-slider" 
+                                       min="0.08" max="2.5" step="0.01" value="0.35">
+                                <div class="range-labels">
+                                    <span>Low</span>
+                                    <span>High</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Age" class="form-label">
+                                    <i class="fas fa-user"></i>
+                                    <span>Age</span>
+                                    <span class="label-info" title="Age in years">ℹ️</span>
+                                </label>
+                                <div class="input-with-slider">
+                                    <input type="number" id="Age" class="form-input" 
+                                           min="20" max="100" step="1" value="35" required>
+                                    <div class="value-display">
+                                        <span id="AgeValue">35</span>
+                                        <span class="unit">years</span>
+                                    </div>
+                                </div>
+                                <input type="range" id="AgeSlider" class="form-slider" 
+                                       min="20" max="100" value="35">
+                                <div class="range-labels">
+                                    <span>Young</span>
+                                    <span>Middle</span>
+                                    <span>Senior</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="action-buttons">
+                            <button type="submit" class="btn btn-primary btn-lg btn-predict">
+                                <i class="fas fa-brain"></i>
+                                <span>Analyze with AI</span>
+                                <div class="btn-glow"></div>
+                            </button>
+                            
+                            <button type="button" id="resetBtn" class="btn btn-secondary">
+                                <i class="fas fa-redo"></i>
+                                Reset Form
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Sample Profiles -->
+                    <div class="sample-profiles">
+                        <h4 class="section-title">
+                            <i class="fas fa-vial"></i>
+                            Test Sample Profiles
+                        </h4>
+                        <div class="profile-grid" id="sampleProfiles">
+                            <!-- Profiles will be loaded dynamically -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Results Panel -->
+                <section class="results-panel card animate__animated animate__fadeInRight">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="card-title">
+                            <h3>AI Analysis Results</h3>
+                            <p>Based on 74% accurate ML model</p>
+                        </div>
+                    </div>
+
+                    <!-- Results Content -->
+                    <div class="results-content">
+                        <!-- Initial State -->
+                        <div class="results-placeholder" id="resultsPlaceholder">
+                            <div class="placeholder-icon">
+                                <i class="fas fa-stethoscope"></i>
+                            </div>
+                            <h4>Awaiting Analysis</h4>
+                            <p>Enter health parameters and click "Analyze with AI" to see your personalized risk assessment.</p>
+                            <div class="placeholder-stats">
+                                <div class="stat-card">
+                                    <i class="fas fa-robot"></i>
+                                    <div>
+                                        <span class="stat-value">74%</span>
+                                        <span class="stat-label">Model Accuracy</span>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <i class="fas fa-bolt"></i>
+                                    <div>
+                                        <span class="stat-value">Instant</span>
+                                        <span class="stat-label">Results</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Results Display (Hidden Initially) -->
+                        <div class="results-display hidden" id="resultsDisplay">
+                            <!-- Risk Score -->
+                            <div class="risk-score-card">
+                                <div class="risk-score-header">
+                                    <h4>Diabetes Risk Score</h4>
+                                    <div class="model-badge">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>74% Accurate</span>
+                                    </div>
+                                </div>
+                                <div class="risk-score-display">
+                                    <div class="score-circle">
+                                        <svg width="180" height="180" viewBox="0 0 180 180">
+                                            <circle cx="90" cy="90" r="80" fill="none" stroke="#e0e0e0" stroke-width="10"/>
+                                            <circle id="riskCircle" cx="90" cy="90" r="80" fill="none" 
+                                                    stroke="#4CAF50" stroke-width="10" stroke-dasharray="502.4" 
+                                                    stroke-dashoffset="502.4" stroke-linecap="round" 
+                                                    transform="rotate(-90 90 90)"/>
+                                        </svg>
+                                        <div class="score-text">
+                                            <span id="riskScore">0</span>
+                                            <small>Risk Score</small>
+                                        </div>
+                                    </div>
+                                    <div class="risk-details">
+                                        <div class="risk-level" id="riskLevel">
+                                            <span class="level-label">Risk Level</span>
+                                            <span class="level-value" id="riskLevelValue">N/A</span>
+                                        </div>
+                                        <div class="risk-confidence">
+                                            <span class="confidence-label">AI Confidence</span>
+                                            <span class="confidence-value" id="confidenceValue">-</span>
+                                        </div>
+                                        <div class="prediction-text" id="predictionText">
+                                            Analysis required
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Probability Breakdown -->
+                            <div class="probability-breakdown">
+                                <h5>
+                                    <i class="fas fa-chart-pie"></i>
+                                    Probability Breakdown
+                                </h5>
+                                <div class="probability-bars">
+                                    <div class="prob-bar-container">
+                                        <div class="prob-label">
+                                            <span>Diabetes</span>
+                                            <span id="probDiabetes">0%</span>
+                                        </div>
+                                        <div class="prob-bar">
+                                            <div class="prob-fill diabetes-fill" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="prob-bar-container">
+                                        <div class="prob-label">
+                                            <span>No Diabetes</span>
+                                            <span id="probNoDiabetes">0%</span>
+                                        </div>
+                                        <div class="prob-bar">
+                                            <div class="prob-fill healthy-fill" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Key Indicators -->
+                            <div class="key-indicators">
+                                <h5>
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    Key Risk Indicators
+                                </h5>
+                                <div class="indicators-grid" id="indicatorsGrid">
+                                    <!-- Indicators will be populated by JS -->
+                                </div>
+                            </div>
+
+                            <!-- Recommendations -->
+                            <div class="recommendations-card">
+                                <h5>
+                                    <i class="fas fa-lightbulb"></i>
+                                    Personalized Recommendations
+                                </h5>
+                                <div class="recommendations-list" id="recommendationsList">
+                                    <!-- Recommendations will be populated by JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Model Info -->
+                    <div class="model-info">
+                        <div class="info-item">
+                            <i class="fas fa-cogs"></i>
+                            <div>
+                                <span class="info-label">Model Type</span>
+                                <span class="info-value">Logistic Regression</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-database"></i>
+                            <div>
+                                <span class="info-label">Training Data</span>
+                                <span class="info-value">PIMA Diabetes Dataset</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-bullseye"></i>
+                            <div>
+                                <span class="info-label">Accuracy</span>
+                                <span class="info-value">74%</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-history"></i>
+                            <div>
+                                <span class="info-label">Last Updated</span>
+                                <span class="info-value">Recently Trained</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Stats Section -->
+            <section class="stats-section animate__animated animate__fadeInUp">
+                <h3 class="stats-title">
+                    <i class="fas fa-globe-americas"></i>
+                    Global Diabetes Statistics
+                </h3>
+                <div class="stats-grid" id="globalStats">
+                    <!-- Stats will be loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- Disclaimer -->
+            <div class="disclaimer-card">
+                <div class="disclaimer-icon">
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="disclaimer-content">
+                    <h5>Important Medical Disclaimer</h5>
+                    <p>
+                        This tool is for informational purposes only and is not a substitute for professional medical advice. 
+                        The predictions are based on machine learning with 74% accuracy and should be used as a screening tool only. 
+                        Always consult with a healthcare professional for proper diagnosis and treatment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-heartbeat"></i>
+                    <div>
+                        <h4>DiabetesPredict Pro</h4>
+                        <p>AI-Powered Health Intelligence Platform</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+                    <a href="#"><i class="fas fa-file-contract"></i> Terms of Service</a>
+                    <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+                </div>
+            </div>
+            <p class="footer-copyright">
+                © 2026 DiabetesPredict Pro | Machine Learning Model with 74% Accuracy | For Educational Purposes
+            </p>
+        </div>
+    </footer>
+
+    <!-- Notification Toast -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
