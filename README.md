@@ -3,6 +3,8 @@
 📋 Project Overview
 DiabetesPredict Pro is a sophisticated web application that leverages machine learning to predict diabetes risk based on patient health parameters. The application uses a Logistic Regression model trained on the Kaggle Diabetes Dataset, achieving 74% accuracy. With a beautiful, modern UI and real-time predictions, it serves as an educational tool for understanding diabetes risk factors and the power of machine learning in healthcare.
 
+dataset link - https://www.kaggle.com/datasets/akshaydattatraykhare/diabetes-dataset
+
 Project Structure :-
 
 diabetes-predictor/
